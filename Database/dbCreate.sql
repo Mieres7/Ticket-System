@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS public.category(
 
 CREATE TABLE IF NOT EXISTS public.role(
     id_role SERIAL PRIMARY KEY,
-    role TEXT COLLATE pg_catalog."default");
+    name_role TEXT COLLATE pg_catalog."default");
 
 CREATE TABLE IF NOT EXISTS public.status(
     id_status SERIAL PRIMARY KEY,
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS public.status(
 
 CREATE TABLE IF NOT EXISTS public.user(
     id_user SERIAL PRIMARY KEY,
-    username TEXT COLLATE pg_catalog."default",
+    username TEXT UNIQUE COLLATE pg_catalog."default",
     password TEXT COLLATE pg_catalog."default",
     id_profile INTEGER,
     id_unit INTEGER,
@@ -34,11 +34,11 @@ CREATE TABLE IF NOT EXISTS public.profile(
     firstname TEXT COLLATE pg_catalog."default",
     middlename TEXT COLLATE pg_catalog."default",
     lastname TEXT COLLATE pg_catalog."default",
-    email TEXT COLLATE pg_catalog."default",
+    email TEXT UNIQUE COLLATE pg_catalog."default",
     description_profile TEXT COLLATE pg_catalog."default",
     gender TEXT COLLATE pg_catalog."default",
     birthday DATE,
-    picture_profile BYTEA);
+    picture_profile TEXT COLLATE pg_catalog."default");
 
 CREATE TABLE IF NOT EXISTS public.ticket(
     id_ticket SERIAL PRIMARY KEY,
